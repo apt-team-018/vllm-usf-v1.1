@@ -979,6 +979,11 @@ class EagleProposer:
                 == "Qwen2_5_VLForConditionalGeneration"
             ):
                 self.model.config.image_token_index = target_model.config.image_token_id
+            if (
+                self.get_model_name(target_model)
+                == "Omega17V0_5_VLForConditionalGeneration"
+            ):
+                self.model.config.image_token_index = target_model.config.image_token_id
             else:
                 self.model.config.image_token_index = (
                     target_model.config.image_token_index

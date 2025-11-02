@@ -57,6 +57,7 @@ _ROCM_SWA_REASON = (
 )
 _ROCM_PARTIALLY_SUPPORTED_MODELS: dict[str, str] = {
     "Qwen2ForCausalLM": _ROCM_SWA_REASON,
+    "Omega17ForCausalLM": _ROCM_SWA_REASON,
     "MistralForCausalLM": _ROCM_SWA_REASON,
     "MixtralForCausalLM": _ROCM_SWA_REASON,
     "PaliGemmaForConditionalGeneration": (

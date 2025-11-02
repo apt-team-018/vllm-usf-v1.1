@@ -19,6 +19,12 @@ def _get_qwen_chat_template_fallback(tokenizer_name_or_path: str) -> Path | None
 
     return CHAT_TEMPLATES_DIR / "template_basic.jinja"
 
+def _get_omega17_chat_template_fallback(tokenizer_name_or_path: str) -> Path | None:
+    if tokenizer_name_or_path.endswith("-Chat"):
+        return CHAT_TEMPLATES_DIR / "template_chatml.jinja"
+
+    return CHAT_TEMPLATES_DIR / "template_basic.jinja"
+
 
 def _get_minicpmv_chat_template_fallback(tokenizer_name_or_path: str) -> Path | None:
     # MiniCPM-V-4.5 version uses a dedicated template
@@ -39,6 +45,7 @@ _MODEL_TYPE_TO_CHAT_TEMPLATE_FALLBACK: dict[str, ChatTemplatePath] = {
     "minicpmv": _get_minicpmv_chat_template_fallback,
     "paligemma": CHAT_TEMPLATES_DIR / "template_basic.jinja",
     "qwen": _get_qwen_chat_template_fallback,
+    "omega17": _get_omega17_chat_template_fallback,
     "siglip": CHAT_TEMPLATES_DIR / "template_basic.jinja",
 }
 

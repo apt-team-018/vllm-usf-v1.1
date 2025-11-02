@@ -25,6 +25,8 @@ from .phi4mini_tool_parser import Phi4MiniJsonToolParser
 from .pythonic_tool_parser import PythonicToolParser
 from .qwen3coder_tool_parser import Qwen3CoderToolParser
 from .qwen3xml_tool_parser import Qwen3XMLToolParser
+from .omega17coder_tool_parser import Omega17CoderToolParser
+from .omega17xml_tool_parser import Omega17XMLToolParser
 from .seed_oss_tool_parser import SeedOssToolParser
 from .step3_tool_parser import Step3ToolParser
 from .xlam_tool_parser import xLAMToolParser
@@ -54,6 +56,8 @@ __all__ = [
     "Glm4MoeModelToolParser",
     "Qwen3CoderToolParser",
     "Qwen3XMLToolParser",
+    "Omega17CoderToolParser",
+    "Omega17XMLToolParser",
     "SeedOssToolParser",
     "Step3ToolParser",
     "OpenAIToolParser",

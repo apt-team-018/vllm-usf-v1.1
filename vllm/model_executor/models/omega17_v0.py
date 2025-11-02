@@ -428,7 +428,7 @@ class Omega17Model(nn.Module):
         return loaded_params
 
 
-class Omega17ForCausalLM(nn.Module, SupportsLoRA, SupportsPP, SupportsEagle3):
+class Omega17V0ForCausalLM(nn.Module, SupportsLoRA, SupportsPP, SupportsEagle3):
     packed_modules_mapping = {
         "qkv_proj": [
             "q_proj",

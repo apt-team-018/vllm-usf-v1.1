@@ -218,6 +218,42 @@ class Qwen3ForSequenceClassificationConfig(VerifyAndUpdateConfig):
             "https://github.com/vllm-project/vllm/tree/main/examples/offline_inference/qwen3_reranker.py"
         )
         vllm_config.model_config.hf_config.method = "from_2_way_softmax"
+        
+class Omega17V0ForProcessRewardModelConfig(VerifyAndUpdateConfig):
+    @staticmethod
+    def verify_and_update_config(vllm_config: "VllmConfig") -> None:
+        pooler_config = vllm_config.model_config.pooler_config
+
+        if pooler_config.step_tag_id is None:
+            pooler_config.step_tag_id = 151651
+
+
+class Omega17V0ForRewardModelConfig(VerifyAndUpdateConfig):
+    @staticmethod
+    def verify_and_update_config(vllm_config: "VllmConfig") -> None:
+        pooler_config = vllm_config.model_config.pooler_config
+
+        if pooler_config.softmax is None:
+            pooler_config.softmax = False
+
+
+class Omega17ForSequenceClassificationConfig(VerifyAndUpdateConfig):
+    @staticmethod
+    def verify_and_update_config(vllm_config: "VllmConfig") -> None:
+        config = vllm_config.model_config.hf_config
+
+        is_original_omega17_reranker = getattr(
+            config, "is_original_omega17_reranker", False
+        )
+
+        if not is_original_omega17_reranker:
+            return
+
+        tokens = getattr(config, "classifier_from_token", None)
+        assert tokens is not None and len(tokens) == 2, (
+            "Try loading the original Omega17 Reranker?"
+        )
+        vllm_config.model_config.hf_config.method = "from_2_way_softmax"
 
 
 class JinaVLForSequenceClassificationConfig(VerifyAndUpdateConfig):
@@ -490,6 +526,9 @@ MODELS_CONFIG_MAP: dict[str, type[VerifyAndUpdateConfig]] = {
     "Qwen2ForProcessRewardModel": Qwen2ForProcessRewardModelConfig,
     "Qwen2ForRewardModel": Qwen2ForRewardModelConfig,
     "Qwen3ForSequenceClassification": Qwen3ForSequenceClassificationConfig,
+    "Omega17V0ForProcessRewardModel": Omega17V0ForProcessRewardModelConfig,
+    "Omega17V0ForRewardModel": Omega17V0ForRewardModelConfig,
+    "Omega17ForSequenceClassification": Omega17ForSequenceClassificationConfig,
     "XLMRobertaModel": JinaRobertaModelConfig,
     "JinaVLForRanking": JinaVLForSequenceClassificationConfig,
     "JambaForSequenceClassification": JambaForSequenceClassificationConfig,
