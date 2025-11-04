@@ -382,6 +382,16 @@ _MULTIMODAL_MODELS = {
         "qwen3_vl_moe",
         "Qwen3VLMoeForConditionalGeneration",
     ),
+    "Omega17V0VLForConditionalGeneration": ("omega17_v0_vl", "Omega17V0VLForConditionalGeneration"),  # noqa: E501
+    "Omega17V0_5_VLForConditionalGeneration": (
+        "omega17_v0_5_vl",
+        "Omega17V0_5_VLForConditionalGeneration",
+    ),
+    "Omega17VLForConditionalGeneration": ("omega17_vl", "Omega17VLForConditionalGeneration"),  # noqa: E501
+    "Omega17VLExpForConditionalGeneration": (
+        "omega17_vl_exp",
+        "Omega17VLExpForConditionalGeneration",
+    ),
     "SkyworkR1VChatModel": ("skyworkr1v", "SkyworkR1VChatModel"),
     "Step3VLForConditionalGeneration": ("step3_vl", "Step3VLForConditionalGeneration"),  # noqa: E501
     "TarsierForConditionalGeneration": ("tarsier", "TarsierForConditionalGeneration"),  # noqa: E501
