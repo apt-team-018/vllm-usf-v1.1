@@ -7,6 +7,11 @@ Model configs may be defined in this directory for the following reasons:
 - There is a need to override the existing config to support vLLM.
 """
 
+from transformers.models.qwen3_vl.configuration_qwen3_vl import Qwen3VLConfig
+from transformers.models.qwen3_vl_moe.configuration_qwen3_vl_moe import (
+    Qwen3VLMoeConfig,
+)
+
 from vllm.transformers_utils.configs.chatglm import ChatGLMConfig
 from vllm.transformers_utils.configs.deepseek_v3 import DeepseekV3Config
 from vllm.transformers_utils.configs.deepseek_vl2 import DeepseekVLV2Config
@@ -62,11 +67,13 @@ __all__ = [
     "Nemotron_Nano_VL_Config",
     "Olmo3Config",
     "OvisConfig",
+    "Qwen3NextConfig",
+    "Qwen3VLConfig",
+    "Qwen3VLMoeConfig",
     "RadioConfig",
     "SpeculatorsConfig",
     "UltravoxConfig",
     "Step3VLConfig",
     "Step3VisionEncoderConfig",
     "Step3TextConfig",
-    "Qwen3NextConfig",
 ]
