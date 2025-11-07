@@ -5,7 +5,7 @@ from typing import Any
 
 import torch
 from torch import nn
-from transformers import Qwen3Config as Omega17Config
+from transformers import Omega17Config
 
 from vllm.attention import Attention, AttentionType
 from vllm.compilation.decorators import support_torch_compile

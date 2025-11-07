@@ -5,7 +5,7 @@ from collections.abc import Callable, Iterable
 from itertools import islice
 
 import torch
-from transformers.models.qwen3_vl_moe.configuration_qwen3_vl_moe import Qwen3VLMoeConfig as Omega17VLExpConfig
+from transformers.models.omega17_vl_exp.configuration_omega17_vl_exp import Omega17VLExpConfig
 
 from vllm.compilation.decorators import support_torch_compile
 from vllm.config import VllmConfig

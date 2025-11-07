@@ -15,13 +15,12 @@ from transformers.models.qwen2_vl import Qwen2VLImageProcessorFast as Omega17V0V
 from transformers.models.qwen2_vl.image_processing_qwen2_vl import (
     smart_resize as image_smart_resize,
 )
-from transformers.models.qwen3_vl import Qwen3VLProcessor as Omega17VLProcessor
-from transformers.models.qwen3_vl import Qwen3VLVideoProcessor as Omega17VLVideoProcessor
-from transformers.models.qwen3_vl.configuration_qwen3_vl import (
-    Qwen3VLConfig as Omega17VLConfig,
-    Qwen3VLVisionConfig as Omega17VLVisionConfig,
+from transformers.models.omega17_vl import Omega17VLProcessor, Omega17VLVideoProcessor
+from transformers.models.omega17_vl.configuration_omega17_vl import (
+    Omega17VLConfig,
+    Omega17VLVisionConfig,
 )
-from transformers.models.qwen3_vl.video_processing_qwen3_vl import (
+from transformers.models.omega17_vl.video_processing_omega17_vl import (
     smart_resize as video_smart_resize,
 )
 from transformers.video_utils import VideoMetadata
