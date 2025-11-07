@@ -7,8 +7,8 @@ requests >= 2.26.0
 tqdm
 blake3
 py-cpuinfo
-# transformers >= 4.56.0  # Replaced with custom fork for Omega17 support
-git+https://github.com/apt-team-018/transformers-usf-exp.git
+# transformers >= 4.56.0  # Custom fork installed separately in Dockerfile to avoid setup.py issues
+# Will be overridden after wheel build with: git+https://github.com/apt-team-018/transformers-usf-exp.git
 tokenizers >= 0.21.1  # Required for fast incremental detokenization.
 protobuf # Required by LlamaTokenizer.
 fastapi[standard] >= 0.115.0 # Required by FastAPI's form models in the OpenAI API server's audio transcriptions endpoint.
