@@ -364,7 +364,7 @@ RUN --mount=type=bind,from=build,src=/workspace/dist,target=/vllm-workspace/dist
 # Force install custom transformers with Omega17 support (overrides any dependency-installed transformers)
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip uninstall --system transformers || true \
-    && uv pip install --system transformers-usf-om-vl-exp-v0
+    && uv pip install --system git+https://github.com/apt-team-018/transformers-usf-exp.git
 
 # Install FlashInfer pre-compiled kernel cache and binaries
 # https://docs.flashinfer.ai/installation.html
