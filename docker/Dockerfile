@@ -362,9 +362,11 @@ RUN --mount=type=bind,from=build,src=/workspace/dist,target=/vllm-workspace/dist
         --extra-index-url ${PYTORCH_CUDA_INDEX_BASE_URL}/cu$(echo $CUDA_VERSION | cut -d. -f1,2 | tr -d '.')
 
 # Force install custom transformers with Omega17 support (overrides any dependency-installed transformers)
+# Allow pre-releases for dependencies like huggingface-hub
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip uninstall --system transformers || true \
-    && uv pip install --system git+https://github.com/apt-team-018/transformers-usf-exp.git
+    && uv pip install --system --prerelease=allow git+https://github.com/apt-team-018/transformers-usf-exp.git \
+    && python3 -c "from transformers.models.omega17_vl_exp import Omega17VLExpConfig; print('✓ Omega17 configs available')"
 
 # Install FlashInfer pre-compiled kernel cache and binaries
 # https://docs.flashinfer.ai/installation.html
