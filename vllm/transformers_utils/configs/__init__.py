@@ -7,6 +7,15 @@ Model configs may be defined in this directory for the following reasons:
 - There is a need to override the existing config to support vLLM.
 """
 
+from transformers.models.omega17_vl.configuration_omega17_vl import (
+    Omega17VLConfig,
+    Omega17VLVisionConfig,
+)
+from transformers.models.omega17_vl_exp.configuration_omega17_vl_exp import (
+    Omega17VLExpConfig,
+    Omega17VLExpTextConfig,
+    Omega17VLExpVisionConfig,
+)
 from transformers.models.qwen3_vl.configuration_qwen3_vl import Qwen3VLConfig
 from transformers.models.qwen3_vl_moe.configuration_qwen3_vl_moe import (
     Qwen3VLMoeConfig,
@@ -66,6 +75,11 @@ __all__ = [
     "NemotronHConfig",
     "Nemotron_Nano_VL_Config",
     "Olmo3Config",
+    "Omega17VLConfig",
+    "Omega17VLExpConfig",
+    "Omega17VLExpTextConfig",
+    "Omega17VLExpVisionConfig",
+    "Omega17VLVisionConfig",
     "OvisConfig",
     "Qwen3NextConfig",
     "Qwen3VLConfig",
