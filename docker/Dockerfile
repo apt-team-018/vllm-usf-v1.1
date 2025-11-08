@@ -366,7 +366,13 @@ RUN --mount=type=bind,from=build,src=/workspace/dist,target=/vllm-workspace/dist
 RUN --mount=type=cache,target=/root/.cache/uv \
     uv pip uninstall --system transformers || true \
     && uv pip install --system --prerelease=allow git+https://github.com/apt-team-018/transformers-usf-exp.git \
-    && python3 -c "from transformers.models.omega17_vl_exp import Omega17VLExpConfig; print('✓ Omega17 configs available')"
+    && python3 -c "\
+from transformers.models.omega17_vl.configuration_omega17_vl import Omega17VLConfig, Omega17VLVisionConfig; \
+from transformers.models.omega17_vl_exp.configuration_omega17_vl_exp import Omega17VLExpConfig, Omega17VLExpTextConfig, Omega17VLExpVisionConfig; \
+print('✓ All Omega17 configs imported successfully'); \
+print('  - Omega17VLConfig: ', Omega17VLConfig); \
+print('  - Omega17VLExpConfig: ', Omega17VLExpConfig); \
+print('  - Omega17VLExpTextConfig: ', Omega17VLExpTextConfig)"
 
 # Install FlashInfer pre-compiled kernel cache and binaries
 # https://docs.flashinfer.ai/installation.html
